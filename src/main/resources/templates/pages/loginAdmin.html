@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Login | Administrador</title>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'>
+    <link rel="stylesheet" href="/admin.css">
+</head>
+<body>
+<div class="login-form">
+    <form action="homeadmin" method="post">
+        <h2>Acesso</h2>
+        <div class="content">
+            <div class="input-field">
+                <input name="email" type="email" placeholder="Email">
+            </div>
+            <div class="input-field">
+                <input name="senha" type="password" placeholder="Password">
+            </div>
+        </div>
+        <div th:if="${erro}" class="alert-danger" style="color: red;">
+            <p th:text="${erro}"></p>
+        </div>
+        <div class="action">
+            <button>Entra</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

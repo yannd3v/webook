@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+	    <meta charset="UTF-8">
+	    <title>Webook | Login</title>
+	    <link rel="stylesheet" href="/style.css">
+	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+	<body>
+	  <div class="container">
+	    <input type="checkbox" id="flip">
+	    <div class="cover">
+	      <div class="front">
+	        <img src="/images/image2.jpg" alt="">
+	        <div class="text">
+	          <span class="text-1">Planejamento é o segredo,<br> não deixe para última hora</span>
+	          <span class="text-2">Se organize!</span>
+	        </div>
+	      </div>
+	      <div class="back">
+	        <img class="backImg" src="/images/backImg.jpg" alt="">
+	        <div class="text">
+	          <span class="text-1">Complete miles of journey <br> with one step</span>
+	          <span class="text-2">Let's get started</span>
+	        </div>
+	      </div>
+	    </div>
+	    <div class="forms">
+	        <div class="form-content">
+	          <div class="login-form">
+	            <div class="title">Entrar</div>
+	          <form action="home" method="post">
+	            <div class="input-boxes">
+	              <div class="input-box">
+	                <i class="fas fa-envelope"></i>
+	                <input name="email" type="text" placeholder="Entre com o seu e-mail" required>
+	              </div>
+	              <div class="input-box">
+	                <i class="fas fa-lock"></i>
+	                <input name="senha" type="password" placeholder="Insira a sua senha" required>
+	              </div>
+	              <div th:if="${erro}" class="alert alert-danger" role="alert" style="color: red;">
+	    			<p th:text="${erro}"></p>
+				  </div>
+	        
+	              <div th:text"${errologin}"></div>
+	              <div class="button input-box">
+	                <input type="submit" value="Entrar">
+	              </div>
+	              <div class="text sign-up-text">Não tem uma conta? <label for="flip">Cadastrar agora</label></div>
+				  <div class="text button-login-admin">É um administrador?
+					  <a class="buttons" href="adminlogin" style="color: #05a7f6">Clique aqui</a>
+				  </div>
+	            </div>
+	        </form>
+	      </div>
+	        <div class="signup-form">
+	          <div class="title">Cadastrar</div>
+	        <form action="login" method="post" id="forms">
+	            <div class="input-boxes">
+	              <div class="input-box">
+	                <i class="fas fa-user"></i>
+	                <input name="nome" type="text" placeholder="Insira um nome" required>
+	              </div>
+	              <div class="input-box">
+	                <i class="fas fa-envelope"></i>
+	                <input name="email" type="email" placeholder="Insira um e-mail" required>
+	              </div>
+	              <div class="input-box">
+	                <i class="fas fa-lock"></i>
+	                <input name="senha" type="password" placeholder="Crie uma senha" required>
+	              </div>
+	              <div class="button input-box">
+	                <input type="submit" value="Cadastrar">
+	              </div>
+	              <div class="text sign-up-text">Já possui uma conta? <label for="flip">Faça login agora</label></div>
+	            </div>
+	      </form>
+	    </div>
+	    </div>
+	    </div>
+	  </div>
+	</body>
+</html>

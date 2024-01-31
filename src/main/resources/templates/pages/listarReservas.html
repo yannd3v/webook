@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Reservas</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #333;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            color: #fff;
+        }
+
+        h1 {
+            color: #05a7f6;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            background-color: #555;
+            padding: 10px;
+            border-radius: 3px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .buttons {
+            display: inline-block;
+            margin: 0 5px;
+            padding: 5px 5px;
+            background-color: #05a7f6;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .buttons:hover {
+            background-color: #555;
+        }
+
+        .confirm-form {
+            display: flex;
+            align-items: center;
+        }
+
+        .confirm-button {
+            background-color: #28a745;
+        }
+        
+        .delete-button{
+			background-color: red;
+		}
+		.edit-button{
+			background-color: orange;
+		}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Reservas</h1>
+        <ul>
+            <li th:each="reserva : ${reservas}">
+                <span th:text="${'Solicitante: ' + reserva.solicitante + ', Sala: ' + reserva.numsala + ', Data: ' + reserva.data + ', Bloco: ' + reserva.bloco + ', Professor: ' + reserva.profresp + ', Contato: ' + reserva.contato + ', Confirmado? ' + reserva.confirmado}"></span>
+                <form class="confirm-form" action="confirmar" method="post">
+                    
+                    <input type="hidden" name="solicitante" th:value="${reserva.solicitante}" />
+                    <input type="hidden" name="numsala" th:value="${reserva.numsala}" />
+                    <input type="hidden" name="data" th:value="${reserva.data}" />
+                    <input type="hidden" name="bloco" th:value="${reserva.bloco}" />
+                    <input type="hidden" name="profresp" th:value="${reserva.profresp}" />
+                    <input type="hidden" name="contato" th:value="${reserva.contato}" />
+                    <input type="hidden" name="confirmado" th:value="${reserva.confirmado}" />
+                    <input type="hidden" name="id" th:value="${reserva.id}" />
+
+                  
+
+                    <button class="buttons confirm-button" th:style="${reserva.confirmado ? 'background-color: gray; color: white;' : ''}" type="submit">
+						  <span th:if="${!reserva.confirmado}">Confirmar</span>
+                		  <span th:if="${reserva.confirmado}">Confirmado</span>
+					</button>
+                </form>
+                <form class="delete-form" action="excluir" method="post">
+					<input type="hidden" name="id" th:value="${reserva.id}" />
+					<input class="buttons delete-button" type="submit" value="Excluir">
+				</form>
+				<form class="edit-form" method="get" action="editar">
+				    <input type="hidden" name="id" th:value="${reserva.id}" />
+				    <button class="buttons edit-button" type="submit">
+				        <span>Editar</span>
+				    </button>
+				</form>
+            </li>
+        </ul>
+        <div class="button-container">
+            <a class="buttons" href="home">Voltar página</a>
+        </div>
+    </div>
+</body>
+</html>

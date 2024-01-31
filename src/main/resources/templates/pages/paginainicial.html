@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+	  body {
+	    font-family: Arial, sans-serif;
+	    background-color: #333;
+	    margin: 0;
+	    padding: 0;
+	  }
+	
+	  .container {
+	    max-width: 800px;
+	    margin: 20px auto;
+	    padding: 10px;
+	    background-color: #333;
+	    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+	  }
+	
+	  table {
+	    width: 100%;
+	    border-collapse: collapse;
+	  }
+	
+	  table, th, td {
+	    border: 1px solid #ddd;
+	  }
+	
+	  th, td {
+	    padding: 10px;
+	    text-align: center;
+	  }
+	
+	  th {
+	    background-color: #333;
+	    color: #fff;
+	  }
+	
+	  td input[type="text"] {
+	    width: 70%;
+	    padding: 2px;
+	    border: 1px solid #ddd;
+	    border-radius: 3px;
+	  }
+	
+	  .button-container {
+	    text-align: center;
+	    margin-top: 20px;
+	  }
+	
+	  .buttons {
+	    display: inline-block;
+	    margin: 0 10px;
+	    padding: 10px 20px;
+	    background-color: #05a7f6;
+	    color: #fff;
+	    border: none;
+	    border-radius: 3px;
+	    cursor: pointer;
+	  }
+	  
+	  .buttons:hover{
+		background-color: #555;
+	  }
+	
+	  @media (max-width: 768px) {
+	    table {
+	      font-size: 12px;
+	    }
+	    th, td {
+	      padding: 5px;
+	    }
+	    .button-container {
+	      margin-top: 10px;
+	    }
+	  }
+	</style>
+</head>
+<body>
+	<div class="container">
+	  <form action="salvar" method="post" id="forms">
+	    <table>
+	      <tr>
+	        <th>Solicitante</th>
+	        <td><input type="text" name="solicitante"></td>
+	        <th>Número da sala</th>
+	        <td><input type="text" name="numsala"></td>
+	      </tr>
+	      <tr>
+	        <th>Data</th>
+	        <td><input type="text" name="data"></td>
+	        <th>Professor</th>
+	        <td><input type="text" name="profresp"></td>
+	      </tr>
+	      <tr>
+	        <th>Bloco</th>
+	        <td><input type="text" name="bloco"></td>
+	        <th>Contato</th>
+	        <td><input type="text" name="contato"></td>
+	      </tr>
+	    </table>
+	    <div th:if="${erro}" class="alert alert-danger" role="alert" style="color: red;">
+	    	<p th:text="${erro}"></p>
+		</div>
+	    <div class="button-container">
+	      <input class="buttons" type="submit" value="Solicitar reserva">
+	      <input class="buttons" type="submit" value="Listar reservas" onclick="listarReservas()">
+	      <input class="buttons" type="submit" value="Sair" onclick="sair()">
+	    </div>
+	  </form>
+	</div>
+	<script>
+	  function listarReservas() {
+		document.getElementById("forms").method = "get";
+	    document.getElementById("forms").action = "lista-reservas";
+	    document.getElementById("forms").submit();
+	  }
+	
+	  function sair() {
+		document.getElementById("forms").method = "get";
+	    document.getElementById("forms").action = "logout";
+	    document.getElementById("forms").submit();
+	  }
+	</script>
+</body>
+</html>
