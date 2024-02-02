@@ -35,7 +35,7 @@ Pré-requisitos: Java 11
 git clone https://github.com/yannd3v/webook.git
 
 # entrar na pasta do projeto webook
-cd backend
+cd webook/
 
 # executar o projeto
 ./mvnw spring-boot:run
