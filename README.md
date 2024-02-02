@@ -28,7 +28,7 @@ A aplicação consiste em gerenciar reservas de salas para alunos e professores 
 - JSF (JavaServer Faces)
 # Como executar o projeto
 
-Pré-requisitos: Java 11
+Pré-requisitos: Java 11, Maven
 
 ```bash
 # clonar repositório
@@ -38,7 +38,10 @@ git clone https://github.com/yannd3v/webook.git
 cd webook/
 
 # executar o projeto
-./mvnw spring-boot:run
+mvn spring-boot:run
+
+# abrir o localhost no navegador
+http://localhost:8080/webook
 ```
 
 # Autor
