@@ -4,7 +4,7 @@ Solução web para gerenciamento de reservas de salas em instituições universi
 # Sobre o projeto
 Webook é uma aplicação full stack web construída durante o curso de Engenharia de Software na disciplina de Arquitetura de Software, o objetivo era construir um app web utilizando uma arquitetura monolítica.
 
-A aplicação consiste em gerenciar reservas de salas para alunos e professores de uma instuitição universitária, onde é possível inserir os dados necessários para uma reserva, que também apresenta uma lista com as reservas e que podem ser excluídas ou editadas.
+A aplicação consiste em gerenciar reservas de salas para alunos e professores de instuitições universitárias, onde é possível inserir os dados necessários para uma reserva, que também apresenta uma lista com as reservas e que podem ser excluídas ou editadas.
 
 ## Layout web
 ![Web 1](https://github.com/yannd3v/webook/blob/main/src/main/resources/static/images/index.png?raw=true)
