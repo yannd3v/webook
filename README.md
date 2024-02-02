@@ -23,6 +23,7 @@ A aplicação consiste em gerenciar reservas de salas para alunos e professores 
 - Spring Boot
 - JPA / Hibernate
 - Maven
+- PostgreSQL
 ## Front end
 - HTML / CSS / JS
 - JSF (JavaServer Faces)
